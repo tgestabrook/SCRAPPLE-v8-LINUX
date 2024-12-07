@@ -22,6 +22,10 @@
     <PackageTags>LANDIS-II;Landis;Extension;fire;suppression;ignitions;spread</PackageTags>
     <PackageLicenseUrl>https://github.com/LANDIS-II-Foundation/Extension-SCRAPPLE/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>http://www.landis-ii.org</PackageProjectUrl>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\build\extensions</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,18 +34,19 @@
   
   <ItemGroup>
     <Reference Include="Ether.WeightedSelector">
-      <HintPath>lib\Ether.WeightedSelector.dll</HintPath>
+      <HintPath>..\..\build\extensions\Ether.WeightedSelector.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.Climate-v5">
+      <HintPath>..\..\build\extensions\Landis.Library.Climate-v5.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.Metadata-v2">
-      <HintPath>lib\Landis.Library.Metadata-v2.dll</HintPath>
+      <HintPath>..\..\build\extensions\Landis.Library.Metadata-v2.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.Parameters-v2">
-      <HintPath>lib\Landis.Library.Parameters-v2.dll</HintPath>
+      <HintPath>..\..\build\extensions\Landis.Library.Parameters-v2.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.UniversalCohorts-v1">
-      <HintPath>lib\Landis.Library.UniversalCohorts-v1.dll</HintPath>
+      <HintPath>..\..\build\extensions\Landis.Library.UniversalCohorts-v1.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
