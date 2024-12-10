@@ -162,6 +162,8 @@ namespace Landis.Extension.SocialClimateFire
             SiteVars.SpecialDeadWood.ActiveSiteValues = 0;
             SiteVars.BiomassKilled.ActiveSiteValues = 0;
             SiteVars.EventID.ActiveSiteValues = 0;
+            SiteVars.siteLadderFuelBiomass.ActiveSiteValues = 0;  // clear values for a new year
+            SiteVars.siteEWS.ActiveSiteValues = 0;  // clear values for a new year
 
             foreach (IDynamicIgnitionMap dynamicRxIgnitions in dynamicRxIgns)
             {
@@ -718,6 +720,56 @@ namespace Landis.Extension.SocialClimateFire
                         if (SiteVars.Disturbed[site] && SiteVars.Intensity[site] > 0)
                         {
                             pixel.MapCode.Value = (int)(SiteVars.ClimaticWaterDeficit[site]);
+                        }
+                        else
+                            pixel.MapCode.Value = 0;
+                    }
+                    else
+                    {
+                        //  Inactive site
+                        pixel.MapCode.Value = 0;
+                    }
+                    outputRaster.WriteBufferPixel();
+                }
+            }
+
+            string[] paths10 = { "social-climate-fire", "EWS-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
+            {
+                IntPixel pixel = outputRaster.BufferPixel;
+                foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)
+                {
+                    if (site.IsActive)
+                    {
+                        if (SiteVars.Disturbed[site] && SiteVars.Intensity[site] > 0)
+                        {
+                            pixel.MapCode.Value = (int)(SiteVars.siteEWS[site]);
+                        }
+                        else
+                            pixel.MapCode.Value = 0;
+                    }
+                    else
+                    {
+                        //  Inactive site
+                        pixel.MapCode.Value = 0;
+                    }
+                    outputRaster.WriteBufferPixel();
+                }
+            }
+
+            string[] paths10 = { "social-climate-fire", "Ladders-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
+            {
+                IntPixel pixel = outputRaster.BufferPixel;
+                foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)
+                {
+                    if (site.IsActive)
+                    {
+                        if (SiteVars.Disturbed[site] && SiteVars.Intensity[site] > 0)
+                        {
+                            pixel.MapCode.Value = (int)(SiteVars.siteLadderFuelBiomass[site]);
                         }
                         else
                             pixel.MapCode.Value = 0;

@@ -39,6 +39,8 @@ namespace Landis.Extension.SocialClimateFire
         public static ISiteVar<double> ClimaticWaterDeficit;
         public static ISiteVar<double> PotentialEvapotranspiration;
         public static ISiteVar<int> DNBR;
+        public static ISiteVar<double> siteLadderFuelBiomass;
+        public static ISiteVar<double> siteEWS;
 
         //---------------------------------------------------------------------
 
@@ -55,6 +57,9 @@ namespace Landis.Extension.SocialClimateFire
             intensity = PlugIn.ModelCore.Landscape.NewSiteVar<byte>();
             spreadProbablity = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             dayOfFire = PlugIn.ModelCore.Landscape.NewSiteVar<ushort>();
+
+            siteLadderFuelBiomass = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
+            siteEWS = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
 
             groundSlope          = PlugIn.ModelCore.Landscape.NewSiteVar<ushort>();
             uphillSlopeAzimuth   = PlugIn.ModelCore.Landscape.NewSiteVar<ushort>();
