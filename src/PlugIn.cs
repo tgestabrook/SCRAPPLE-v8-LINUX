@@ -683,8 +683,8 @@ namespace Landis.Extension.SocialClimateFire
                 }
             }
 
-            string[] paths10 = { "social-climate-fire", "PET-{timestep}.tif" };
-            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            string[] paths11 = { "social-climate-fire", "PET-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths11), currentTime);
             using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
             {
                 IntPixel pixel = outputRaster.BufferPixel;
@@ -708,8 +708,8 @@ namespace Landis.Extension.SocialClimateFire
                 }
             }
 
-            string[] paths10 = { "social-climate-fire", "CWD-{timestep}.tif" };
-            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            string[] paths12 = { "social-climate-fire", "CWD-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths12), currentTime);
             using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
             {
                 IntPixel pixel = outputRaster.BufferPixel;
@@ -733,8 +733,8 @@ namespace Landis.Extension.SocialClimateFire
                 }
             }
 
-            string[] paths10 = { "social-climate-fire", "EWS-{timestep}.tif" };
-            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            string[] paths13 = { "social-climate-fire", "EWS-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths13), currentTime);
             using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
             {
                 IntPixel pixel = outputRaster.BufferPixel;
@@ -758,8 +758,8 @@ namespace Landis.Extension.SocialClimateFire
                 }
             }
 
-            string[] paths10 = { "social-climate-fire", "Ladders-{timestep}.tif" };
-            path = MapNames.ReplaceTemplateVars(Path.Combine(paths10), currentTime);
+            string[] paths14 = { "social-climate-fire", "Ladders-{timestep}.tif" };
+            path = MapNames.ReplaceTemplateVars(Path.Combine(paths14), currentTime);
             using (IOutputRaster<IntPixel> outputRaster = modelCore.CreateRaster<IntPixel>(path, modelCore.Landscape.Dimensions))
             {
                 IntPixel pixel = outputRaster.BufferPixel;
